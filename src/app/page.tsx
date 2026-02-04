@@ -1,61 +1,148 @@
-import { ApiKeyCheck } from "@/components/ApiKeyCheck";
-import Image from "next/image";
+import { LandingFx } from "@/components/landing/LandingFx";
+import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <div className="min-h-screen p-8 flex flex-col items-center justify-center font-[family-name:var(--font-geist-sans)]">
-      <main className="max-w-2xl w-full space-y-8">
-        <div className="flex flex-col items-center">
-          <a href="https://tambo.co" target="_blank" rel="noopener noreferrer">
-            <Image
-              src="/Octo-Icon.svg"
-              alt="Tambo AI Logo"
-              width={80}
-              height={80}
-              className="mb-4"
-            />
-          </a>
-          <h1 className="text-4xl text-center">tambo analytics template</h1>
-        </div>
+    <div className={styles.page} data-landing-root>
+      <LandingFx />
 
-        <div className="w-full space-y-8">
-          <div className="bg-white px-8 py-4">
-            <h2 className="text-xl font-semibold mb-4">Setup Checklist</h2>
-            <ApiKeyCheck>
-              <div className="flex gap-4 flex-wrap">
-                <a
-                  href="/chat"
-                  className="px-6 py-3 rounded-md font-medium shadow-sm transition-colors text-lg mt-4 bg-[#7FFFC3] hover:bg-[#72e6b0] text-gray-800"
-                >
-                  Go to Chat →
+      <div className={styles.shell}>
+        <header className={styles.header}>
+          <a className={styles.brand} href="#home" aria-label="GP">
+            <span className={styles.brandMark}>GP</span>
+            <span className={styles.brandTag}>Grand Prix Lab</span>
+          </a>
+
+          <div className={styles.headerActions}>
+            <a className={styles.pill} href="#store">
+              Store
+            </a>
+            <a className={styles.pillGhost} href="#features">
+              Enter
+            </a>
+          </div>
+        </header>
+
+        <main className={styles.main} id="home">
+          <div className={styles.grid}>
+            <aside className={styles.rail}>
+              <p className={styles.railLabel}>Pages</p>
+              <nav className={styles.railNav} aria-label="Primary">
+                <a href="#home">Home</a>
+                <a href="#track">On Track</a>
+                <a href="#garage">Off Track</a>
+                <a href="#calendar">Calendar</a>
+              </nav>
+            </aside>
+
+            <section className={styles.hero} aria-label="Hero">
+              <h1 className={styles.title}>
+                Always bringing
+                <br />
+                the <span className={styles.titleAccent}>fight</span>.
+              </h1>
+              <p className={styles.lede}>
+                A racing-first, dark landing page with glowing pinstripes,
+                track-light neon, and subtle depth.
+              </p>
+
+              <div className={styles.ctas}>
+                <a className={styles.ctaPrimary} href="#track">
+                  View the track
+                </a>
+                <a className={styles.ctaSecondary} href="#calendar">
+                  Race calendar
                 </a>
               </div>
-            </ApiKeyCheck>
+
+              <div className={styles.visual} aria-hidden="true">
+                <div className={styles.visualInner} />
+              </div>
+            </section>
+
+            <aside className={styles.railRight}>
+              <p className={styles.railLabel}>Follow on</p>
+              <nav className={styles.railNav} aria-label="Social">
+                <a
+                  href="https://www.tiktok.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  TikTok
+                </a>
+                <a
+                  href="https://www.instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Instagram
+                </a>
+                <a
+                  href="https://www.youtube.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  YouTube
+                </a>
+                <a
+                  href="https://www.twitch.tv"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Twitch
+                </a>
+              </nav>
+            </aside>
           </div>
 
-          <div className="bg-white px-8 py-4">
-            <h2 className="text-xl font-semibold mb-4">How it works:</h2>
-            <p className="text-gray-600 mb-4">
-              This template demonstrates drag & drop analytics with AI-generated
-              components.
-            </p>
-            <p className="text-gray-600 mb-4">
-              Ask the AI to create charts and data visualizations, then drag
-              them onto the canvas for organization.
-            </p>
-            <div className="flex gap-4 flex-wrap mt-4">
-              <a
-                href="https://tambo.co/docs"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3 rounded-md font-medium transition-colors text-lg mt-4 border border-gray-300 hover:bg-gray-50"
-              >
-                View Docs
-              </a>
+          <section className={styles.features} id="features">
+            <div className={styles.feature} id="track">
+              <p className={styles.featureKicker}>On track</p>
+              <h2 className={styles.featureTitle}>Grip, pace, and precision.</h2>
+              <p className={styles.featureBody}>
+                Pinstripe glow reacts to your cursor, like a moving apex light.
+              </p>
             </div>
+
+            <div className={styles.feature} id="garage">
+              <p className={styles.featureKicker}>Off track</p>
+              <h2 className={styles.featureTitle}>Built for late-night builds.</h2>
+              <p className={styles.featureBody}>
+                Dark surfaces, sharp contrast, and subtle motion tuned for focus.
+              </p>
+            </div>
+
+            <div className={styles.feature} id="calendar">
+              <p className={styles.featureKicker}>Calendar</p>
+              <h2 className={styles.featureTitle}>Never miss lights out.</h2>
+              <p className={styles.featureBody}>
+                Drop in your schedule, add events, and keep the season in sync.
+              </p>
+            </div>
+          </section>
+
+          <section className={styles.sponsors} id="store" aria-label="Partners">
+            <p className={styles.sponsorsLabel}>Partners</p>
+            <ul className={styles.sponsorList}>
+              <li>Quadrant</li>
+              <li>Bell</li>
+              <li>Tumi</li>
+              <li>Pure Electric</li>
+              <li>PAP</li>
+              <li>Monster</li>
+              <li>Hilton</li>
+            </ul>
+          </section>
+        </main>
+
+        <footer className={styles.footer}>
+          <p className={styles.footerCopy}>© {new Date().getFullYear()} GP.</p>
+          <div className={styles.footerLinks}>
+            <a href="#privacy">Privacy policy</a>
+            <a href="#terms">Terms</a>
           </div>
-        </div>
-      </main>
+        </footer>
+      </div>
     </div>
   );
 }
